@@ -1,0 +1,16 @@
+{% load i18n %}
+
+{% if display_label_by == None or display_label_by %}
+    {% trans "By:" %}
+{% endif %}
+{% if poster %}
+    {% include "partials/profile_link.html" %}
+{% else %}
+    {% if username_highlighted %}<b>{% endif %}{{ username }}{% if username_highlighted %}</b>{%endif%}
+{% endif %}
+        
+{% if creation_date %}
+    {% blocktrans trimmed%}
+        on {{ creation_date }}
+    {% endblocktrans %}
+{% endif %}
