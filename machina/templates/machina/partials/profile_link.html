@@ -1,0 +1,10 @@
+{% load forum_member_tags %}
+
+{% if poster %}
+    {% url 'forum_member:profile' poster.id as profil_url %}
+    {% with username=poster|forum_member_display_name %} 
+        <a href="{{profil_url }}" title="title">
+            {% if username_highlighted %}<b>{%endif%}{{ username }}{% if username_highlighted %}</b>{%endif%}
+        </a>
+    {% endwith %}
+{% endif %}
